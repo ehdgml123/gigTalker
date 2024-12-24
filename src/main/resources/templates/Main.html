@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/Main.css}" rel="stylesheet">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="main" layout:fragment="content">
+    <div class="Main-wrap">
+        <section class="section00">
+            <div class="row">
+                <div class="col-8">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slide">
+                                <img src="img/slide1.jpg" alt="슬라이드 1">
+                            </div>
+                            <div class="slide">
+                                <img src="img/slide2.jpg" alt="슬라이드 2">
+                            </div>
+                            <div class="slide">
+                                <img src="img/slide3.jpg" alt="슬라이드 3">
+                            </div>
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+            <div class="col-4">
+                <ul class="visual-menu">
+                    <li>
+                        <a href="#" class="visual-item">
+                            <p>맞춤주문<br>요청</p>
+                            <img src="img/anstj.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="visual-item">
+                            <p>전문가<br>센터</p>
+                            <img src="img/그래프.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="visual-item">
+                            <p>자주묻는<br>질문</p>
+                            <img src="img/q.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="visual-item">
+                            <p>사용<br>가이드</p>
+                            <img src="img/shxm.png">
+                        </a>
+                    </li>
+                </ul>
+             </div>
+          </div>
+        </section>
+        <section class="section02">
+            <div class="container-i">
+                <h3>어떤 분야의 전문가를 찾으시나요?</h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont.png">
+                            영상/사진
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont1.png">
+                            IT 개발
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont2.png">
+                            문서/번역
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont3.png">
+                            디자인
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont4.png">
+                            생활서비스
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont5.png">
+                            학습/취업
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont6.png">
+                            음악/오디오
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont7.png">
+                            상담
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont8.png">
+                            세무/법무
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/cont9.png">
+                            기타
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <section class="section03">
+            <div class="container-A">
+                <h3>가장 인기있는 카테고리</h3>
+                <div class="container-warp">
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="img/swi.jpg">
+                            <div class="slide-text">
+                                <p>당신의 스토리를 담아드립니다.</p>
+                                <h5>영상/사진</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="img/swi1.png">
+                            <div class="slide-text">
+                                <p>당신의 브랜드를 담아드립니다</p>
+                                <h5>디자인</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="img/swi2.png">
+                            <div class="slide-text">
+                                <p>기획에서 모든 번역</p>
+                                <h5>문서/번역</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="img/swi3.png">
+                            <div class="slide-text">
+                                <p>당신의 아이디어를 현실로</p>
+                                <h5>IT 개발</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section04">
+            <div  class="container-B">
+                <div class="row">
+                    <div class="col-6">
+                        <h1>왜 긱톡커를 이용해야 할까요?</h1>
+                        <p>
+                            긱톡커는 수수료를 최소화하여 전문가와 구매자
+                            <br>
+                            모두에게 최고의 가치를 제공합니다.
+                        </p>
+                        <dl>
+                            <dt>고품질의 작업을 신속하게 완료</dt>
+                            <dd>어려운 일은 긱톡커 전문가에게 맡기고 중요한 일에만 집중하세요!</dd>
+                        </dl>
+                        <dl>
+                            <dt>안심하고 결제하세요</dt>
+                            <dd>예상치 못한 결과물로 당황하지 마세요, 수정을 요청할 수 있으며 프로젝트가 완료된 경우에만 </dd>
+                            <dd> 실제 결제가 이루어집니다. 이제 안전하게 결제 대금을 보호받으세요.</dd>
+                        </dl>
+                        <dl>
+                            <dt>비용을 절약하세요</dt>
+                            <dd>원하는 가격대의 적합한 상품을 구매할 수 있습니다.</dd>
+                        </dl>
+                    </div>
+                    <div class="col-6-A">
+                        <img src="img/main-im.png">
+                    </div>
+                </div>
+           </div>s
+    </section>
+        <section class="section05">
+          <!--나중에 상품 등록 후 하기-->
+        </section>
+        <section class="section06">
+            <div class="container-C">
+                <h1>전문가 활동을 시작하세요</h1>
+                <p>나의 전문 지식을 나누고, 의미있는 수익을 창출하세요!</p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="item-box bg01">
+                                <h5>
+                                    전문가 서비스란
+                                    <br>
+                                    무엇인가요?
+                                </h5>
+                                <img src="img/main-ico-05.png">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="item-box bg02">
+                                <h5>
+                                    자격조건이
+                                    <br>
+                                    궁금해요
+                                </h5>
+                                <img src="img/main-ico-06.png">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="item-box bg03">
+                                <h5>
+                                    전문가 서비스란
+                                    <br>
+                                    무엇인가요?
+                                </h5>
+                                <img src="img/main-ico-07.png">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="item-box bg04">
+                                <h5>
+                                    전문가 서비스란
+                                    <br>
+                                    무엇인가요?
+                                </h5>
+                                <img src="img/main-ico-08.png">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="section07">
+            <div class="container-D">
+               <div class="row-L">
+                   <div class="col-6">
+                       <h3>공지사항</h3>
+                       <ul class="main-notice-list">
+                           <li>
+                               <a href="#">
+                                <span>
+                                   휴무일 고객센터 운영 안내
+                                </span>
+                                   2024.10.24
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#">
+                                <span>
+                                   휴무일 고객센터 운영 안내
+                                </span>
+                                   2024.10.24
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#">
+                                <span>
+                                   휴무일 고객센터 운영 안내
+                                </span>
+                                   2024.10.24
+                               </a>
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="col-6">
+                       <h3>긱톡커 앱 다운로드</h3>
+                       <p>
+                           어디에서든 구매나 판매 현황을
+                           <br>
+                           놓치지 않으려면 지금 다운로드 하세요
+                       </p>
+                       <div class="btn-group">
+                           <button type="button" class="btn btn-outline-gray">
+                               <p>
+                                   <span>
+                                       GET IT ON
+                                   </span>
+                                   Google Play
+                               </p>
+                           </button>
+                           <button type="button" class="btn btn-outline-gray">
+                               <p>
+                                   <span>
+                                       Downlaod on the
+                                   </span>
+                                   App Store
+                               </p>
+                           </button>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </section>
+ </div>
+</div>
+<script>
+ /*   document.addEventListener('DOMContentLoaded', function () {
+        var i = 0;
+        var slideCount = 1; // 한 번에 보여줄 슬라이드 수
+        var slides = document.querySelectorAll('.slider .slide');
+        var totalSlides = slides.length;
+        var slideInterval;
+
+        // 초기 슬라이드 숨기기
+        for (var j = slideCount; j < totalSlides; j++) {
+            slides[j].style.display = 'none';
+        }
+
+        // 슬라이드 업데이트 함수
+        function updateSlider() {
+            // 현재 슬라이드를 숨기고, 새로운 슬라이드를 표시
+            for (var j = 0; j < totalSlides; j++) {
+                slides[j].style.display = 'none';
+            }
+            // 슬라이드를 표시
+            for (var j = i; j < i + slideCount && j < totalSlides; j++) {
+                slides[j].style.display = 'block';
+            }
+        }
+
+        // 이전 버튼 클릭
+        document.querySelector('.prev').addEventListener('click', function () {
+            i = (i === 0) ? totalSlides - slideCount : i - slideCount;
+            updateSlider();
+            restartAutoSlide(); // 버튼 클릭 시 자동 슬라이드 재시작
+        });
+
+        // 다음 버튼 클릭
+        document.querySelector('.next').addEventListener('click', function () {
+            i = (i === totalSlides - slideCount) ? 0 : i + slideCount;
+            updateSlider();
+            restartAutoSlide(); // 버튼 클릭 시 자동 슬라이드 재시작
+        });
+
+        // 자동 슬라이드 함수
+        function startAutoSlide() {
+            slideInterval = setInterval(function () {
+                i = (i === totalSlides - slideCount) ? 0 : i + slideCount;
+                updateSlider();
+            }, 5000); // 5초 간격으로 슬라이드 전환
+        }
+
+        // 자동 슬라이드 재시작
+        function restartAutoSlide() {
+            clearInterval(slideInterval); // 기존 타이머 중단
+            startAutoSlide(); // 새 타이머 시작
+        }
+
+        // 초기 상태 및 자동 슬라이드 시작
+        updateSlider();
+        startAutoSlide();
+    });*/
+</script>
+</body>
+</html>
