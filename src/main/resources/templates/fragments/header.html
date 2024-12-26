@@ -7,10 +7,10 @@
             <div class="header-top">
                 <div class="container">
                     <a href="#" class="router-link-active router-link-exact-active header-logo" >
-                       <img src="img/log.png">
+                        <img src="img/log.png">
                     </a>
                     <div class="input-search">
-                       <input type="text" placeholder="어떤 전문가를 찾으시나요?">
+                        <input type="text" placeholder="어떤 전문가를 찾으시나요?">
                         <button type="button">
                             <i class="ico i-search-p"></i>
                         </button>
@@ -21,18 +21,48 @@
                             한국어
                         </li>
                         <li class="off">
-                            <a href="#">전문가 등록</a>
+                            <a href="expert/main">전문가 등록</a>
                         </li>
                         <li class="off">
-                            <a href="#">로그인</a>
+                            <a href="login/loginMain">로그인</a>
                         </li>
                         <li class="off">
-                            <button class="btn btn-secondary btn-mini">회원가입</button>
+                            <button class="btn btn-secondary btn-mini" >
+                                <a href="join/joinMain">회원가입</a>
+                            </button>
+                        </li>
+                        <li>
+                            <div class="dropdown-group">
+                                <div class="dropdown-list-wrap header-user">
+                                    <button  class="dropdown-button active">
+                                        <div class="user-phone" style="background:  0% 0% / cover rgb(129, 118, 211) !important; pointer-events: none;">이</div>
+                                    </button>
+                                    <ul id="headerUserMenu" class="dropdown-list" >
+                                        <li>
+                                            <a href="#" class="link-area">프로필 관리</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/EditInformation" class="link-area">계정정보</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link-area">구매관리</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link-area">마이페이지</a>
+                                        </li>
+                                        <hr>
+                                        <li>
+                                            <i class="ico i-logout"></i>
+                                            <a href="#" class="link-area">로그아웃</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            </div>
+        </div>
         <div class="header-catagory">
             <div class="container">
                 <ul>

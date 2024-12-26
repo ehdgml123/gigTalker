@@ -172,6 +172,77 @@ button {
     font-size: 18px;
 }
 
+.dropdown-group .dropdown-list-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-button {
+    background: var(--gt-write);
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-black-03);
+    font-size: var(--gt-text-sm);
+    font-weight: 400;
+    justify-content: flex-start;
+    height: 40px;
+    padding: 0 40px 0 16px;
+    position: relative;
+    width: 100%;
+}
+
+.user-photo {
+    align-items: center;
+    border-radius: 100px;
+    background: var(--gt-warning);
+    background-size: cover !important;
+    color: #fff;
+    font-size: var(--gt-text-mn);
+    display: flex
+;
+    height: 24px;
+    justify-content: center;
+    position: relative;
+    width: 24px;
+}
+
+.dropdown-group .header-user .dropdown-list {
+    box-shadow: 0 4px 4px #00000040;
+    background: #fff;
+    padding: 8px 12px;
+    top: 40px;
+    right: 0;
+    width: 132px;
+    position: absolute;
+    z-index: 11;
+}
+
+.dropdown-list li {
+    height: auto;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+
+.dropdown-group .dropdown-list-wrap .dropdown-list li {
+    align-items: center;
+    border-radius: 4px;
+    color: #191a1c;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    position: relative;
+}
+
+.i-logout{
+    background: url("../img/logout.png");
+    height: 27px;
+    width: 27px;
+}
+
+
 .header-top-right button {
     font-size: 17px;
     cursor: pointer;
@@ -190,6 +261,8 @@ button {
     border-top: 1px solid var(--gt-gray-04);
     border-bottom: 1px solid var(--gt-gray-05);
     height: 60px;
+    position: relative;
+    z-index: 1;
 }
 
 .header-catagory ul {
