@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/orderManagement.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container-A" layout:fragment="content">
+  <div class="content mypage">
+    <div class="container">
+      <aside class="cs-sidedar">
+        <div class="mypage-profile">
+          <div class="mypage-profile-top">
+            <p>
+              내 프로필
+              <a aria-current="page" href="/EditInformation" class="router-link-active router-link-exact-active">수정하기</a>
+            </p>
+          </div>
+          <h5>홍길동</h5>
+          <a href="/expert/main">
+            <button type="button" class="btn btn-primary">전문가 센터로 이동</button>
+          </a>
+        </div>
+        <h5>마이페이지</h5>
+        <ul class="sc-menu">
+          <li id="custom-orders">
+            <a aria-current="page"  href="/user/UserMyPage" class="router-link-active router-link-exact-active">
+              맞춤주문내역
+            </a>
+          </li>
+          <li id="order-management" class="active">
+            <a href="/order-management"> 구매관리</a>
+          </li>
+          <li id="my-review">
+            <a href="/my-review">
+              내가 쓴 구매후기
+            </a>
+          </li>
+          <li id="pay-history">
+            <a href="/pay-history">결재내역</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="mypage-content">
+        <div class="ec-sell-set">
+          <div>
+            <h1>구매관리</h1>
+            <div class="ec-sell-top">
+              <div class="dropdown-group">
+                <div class="dropdown-list-wrap">
+                  <select class="dropdown-button">
+                    <option value="전체">전체</option>
+                    <option value="대기중">대기중</option>
+                    <option value="진행중">진행중</option>
+                    <option value="작업완료">작업완료</option>
+                    <option value="수정요청">수정요청</option>
+                    <option value="거래완료">거래완료</option>
+                    <option value="취소">취소</option>
+                    <option value="일시중단">일시중단</option>
+                  </select>
+                </div>
+              </div>
+              <div class="dropdown-group">
+                <div class="dropdown-list-wrap">
+                  <select class="dropdown-button">
+                    <option value="1개월">1개월</option>
+                    <option value="3개월">3개월</option>
+                    <option value="6개월">6개월</option>
+                    <option value="1년내">1녀내</option>
+                    <option value="2년내">2년내</option>
+                    <option value="전체">전체</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group mn">
+                <input type="text" id="text2" placeholder="제목">
+              </div>
+              <button type="button" class="btn btn-black">검색</button>
+            </div>
+          </div>
+          <div class="ec-sell-category">
+            <ul>
+              <li class="active">전체</li>
+              <li class>대기중</li>
+              <li class>진행중</li>
+              <li>작업완료</li>
+              <li>수정요청</li>
+              <li>거래완료</li>
+              <li>취소</li>
+              <li>일시중단</li>
+            </ul>
+          </div>
+          <div class="ec-sell-body">
+            <p class="ec-sell-info">
+              <i class="ico i-exclamation-circle-fill"></i>
+              작업완료 이후 7일이 경과하면 자동으로 구매 확정이 되며 이후 환불이 불가능합니다.
+            </p>
+            <div class="ec-sell-list">
+              <ul>
+                <li>
+                  <div class="mp-review-item-none">
+                    <p>구매관리 내역이 없습니다.</p>
+                  </div>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

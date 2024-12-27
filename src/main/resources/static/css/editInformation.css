@@ -139,6 +139,7 @@ a{
     gap: 8px;
     position: relative;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .my-info-edit .input-area.flex-wrap {
