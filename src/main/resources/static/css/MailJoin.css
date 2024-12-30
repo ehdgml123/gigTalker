@@ -287,3 +287,21 @@ label{
     font-size: 19px;
     margin: auto 0 0;
 }
+
+.input-group.md input[type=email]{
+    font-size: var(--gt-text-lg);
+    height: 55px;
+    padding: 0 20px;
+}
+
+.input-group input[type=email]{
+    background: var(--gt-write);
+    border: 1px solid var(--gt-gray-05);
+    border-radius: 6px;
+    color: var(--gt-gray-01);
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 0 16px;
+    transition: all .5s;
+}

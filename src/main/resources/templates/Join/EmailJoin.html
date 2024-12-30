@@ -23,32 +23,43 @@
           뒤로가기
         </a>
         <div class="email-top">
-          <h3>이메일 로그인</h3>
+          <h3>이메일 회원가입</h3>
+
+          <!-- 성공 메시지 표시 (모달) -->
+          <div th:if="${successMessage}" class="modal" id="successModal">
+            <div class="modal-content">
+              <span class="close-modal" onclick="closeModal()">&times;</span>
+              <p th:text="${successMessage}"></p>
+            </div>
+          </div>
+
           <!-- <form> 태그를 input-wrap의 외부로 이동 -->
-          <form role="form" method="post" action="">
+          <form role="form" method="post" th:action="@{/join/EmailJoin.html}" th:object="${user}">
             <div class="input-wrap">
               <div class="input-group md">
                 <label for="text01">이메일</label>
-                <input type="text" id="text01" name="email" placeholder="이메일을 입력하세요" required>
+                <input type="email" id="text01" name="email" th:field="*{email}" placeholder="이메일을 입력하세요" required>
+                <div th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}"></div>
               </div>
               <div class="input-group md">
                 <label for="pwInput">비밀번호</label>
-                <input type="password" id="pwInput" name="password" placeholder="비밀번호를 입력하세요" autocomplete="on" required>
+                <input type="password" id="pwInput" name="password" th:field="*{password}" placeholder="비밀번호를 입력하세요" autocomplete="on" required>
               </div>
               <div class="input-group md">
                 <label for="nameInput">이름</label>
-                <input type="text" id="nameInput" name="name" placeholder="홍길동">
+                <input type="text" id="nameInput" name="name" th:field="*{name}" placeholder="홍길동">
                 <p>성명이나 회사명을 사용하여 신뢰를 구축하세요.</p>
+                <div th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}"></div>
               </div>
               <div class="input-group md">
                 <label for="phoneInput">핸드폰</label>
-                <input type="text" id="phoneInput" name="phone" placeholder="핸드폰을 입력하세요">
+                <input type="text" id="phoneInput" name="phone" th:field="*{phone}" placeholder="핸드폰을 입력하세요">
               </div>
             </div>
             <label for="phoneInput">틱톡커에 무슨일로 오셨나요?</label>
             <ul class="create-account-list">
               <li>
-                <a>
+                <a href="javascript:void(0);" onclick="selectRole('SERVICE_PURCHASE')">
                   <h6>서비스 구매</h6>
                   <p>
                     전문가 리스트 페이지로
@@ -58,7 +69,7 @@
                 </a>
               </li>
               <li>
-                <a>
+                <a href="javascript:void(0);" onclick="selectRole('EXPERT_REGISTRATION')">
                   <h6>전문가 등록</h6>
                   <p>
                     전문가 등록페이지로
@@ -68,8 +79,10 @@
                 </a>
               </li>
             </ul>
+            <input type="hidden" th:field="*{role}" id="selectedRole" required>
+            <div th:if="${#fields.hasErrors('role')}" class="error" th:errors="*{role}"></div>
             <div class="btn-group">
-              <button type="submit" class="btn btn-black">로그인</button>
+              <button type="submit" class="btn btn-black">가입하기</button>
             </div>
           </form>
         </div>
@@ -96,5 +109,19 @@
       $(this).addClass('active');
     });
   });
+
+  function selectRole(role) {
+    // 선택된 역할을 숨겨진 필드에 설정
+    document.getElementById('selectedRole').value = role;
+
+    // 선택된 역할에 'selected' 클래스 추가 및 다른 역할에서 제거
+    const links = document.querySelectorAll('.create-account-list a');
+    links.forEach(function(link) {
+      link.classList.remove('selected');
+    });
+    event.currentTarget.classList.add('selected');
+  }
+
+
 </script>
 </html>
