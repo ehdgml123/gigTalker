@@ -175,14 +175,14 @@ button {
 
 .email-top > .input-group > p {
     color: #666;
-    font-size: var(--gt-text-lg);
+    font-size: 19px;
 }
 
 .input-group p {
     align-items: center;
     color: var(--gt-gray-04);
     display: flex;
-    font-size: var(--gt-text-sm) !important;
+    font-size: 19px;
     justify-content: space-between;
     margin: 4px 0 0;
     text-align: left;

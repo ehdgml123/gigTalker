@@ -1,11 +1,12 @@
 package com.zerock.dto;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.FetchType;
+import jakarta.validation.constraints.*;
 import lombok.*;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -30,6 +31,8 @@ public class UserFormDto {
     @Pattern(regexp = "^\\d{10,11}$", message = "유효한 핸드폰 번호를 입력하세요.")
     private String phone;
 
-    @NotBlank(message = "참여 목적을 선택하세요.")
-    private String role;
+    @NotBlank(message = "틱톡커에 오신 이유를 선택해주세요!")
+    private String role; // 단일 역할로 변경
+
+
 }

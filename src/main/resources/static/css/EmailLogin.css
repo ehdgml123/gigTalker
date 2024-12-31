@@ -168,9 +168,9 @@ button {
     border: 1px solid var(--gt-gray-05);
     border-radius: 6px;
     color: var(--gt-gray-01);
-    font-size: 14px;
+    font-size: 21px;
     font-weight: 400;
-    height: 50px;
+    height: 71px;
     padding: 0 16px;
     transition: all .5s;
 }
@@ -220,6 +220,24 @@ button {
     position: relative;
     width: 100%;
 }
+
+.btn-black {
+    background: var(--gt-black-03);
+    color: var(--gt-write) !important;
+}
+
+button{
+    border: 1px solid #999;
+    color: #333;
+    font-size: 27px;
+    font-weight: 700;
+    height: 80px;
+    position: relative;
+    width: 100%;
+
+}
+
+
 
 .btn-black {
     background: var(--gt-black-03);

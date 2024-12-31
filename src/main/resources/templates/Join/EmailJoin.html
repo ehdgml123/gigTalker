@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>이메일 회원가입</title>
   <link th:href="@{/css/mailJoin.css}" rel="stylesheet">
 
   <!-- JS, Popper.js, and jQuery -->
@@ -14,7 +14,7 @@
 <div class="login-wrap">
   <div class="container-a">
     <div class="login-area">
-      <a href="" class="login-logo">
+      <a href="/" class="login-logo">
         <img src="/img/log.png" alt="Logo">
       </a>
       <div class="login-email">
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          <!-- <form> 태그를 input-wrap의 외부로 이동 -->
+          <!-- 회원가입 폼 -->
           <form role="form" method="post" th:action="@{/join/EmailJoin.html}" th:object="${user}">
             <div class="input-wrap">
               <div class="input-group md">
@@ -44,6 +44,7 @@
               <div class="input-group md">
                 <label for="pwInput">비밀번호</label>
                 <input type="password" id="pwInput" name="password" th:field="*{password}" placeholder="비밀번호를 입력하세요" autocomplete="on" required>
+                <div th:if="${#fields.hasErrors('password')}" class="error" th:errors="*{password}"></div>
               </div>
               <div class="input-group md">
                 <label for="nameInput">이름</label>
@@ -56,10 +57,10 @@
                 <input type="text" id="phoneInput" name="phone" th:field="*{phone}" placeholder="핸드폰을 입력하세요">
               </div>
             </div>
-            <label for="phoneInput">틱톡커에 무슨일로 오셨나요?</label>
+            <label for="roleSelection">틱톡커에 무슨 일로 오셨나요?</label>
             <ul class="create-account-list">
               <li>
-                <a href="javascript:void(0);" onclick="selectRole('SERVICE_PURCHASE')">
+                <a href="javascript:void(0);" onclick="selectRole(event, 'SERVICE_PURCHASE')">
                   <h6>서비스 구매</h6>
                   <p>
                     전문가 리스트 페이지로
@@ -69,16 +70,17 @@
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);" onclick="selectRole('EXPERT_REGISTRATION')">
+                <a href="javascript:void(0);" onclick="selectRole(event, 'EXPERT_REGISTRATION')">
                   <h6>전문가 등록</h6>
                   <p>
-                    전문가 등록페이지로
+                    전문가 등록 페이지로
                     <br>
                     이동합니다.
                   </p>
                 </a>
               </li>
             </ul>
+            <!-- 숨겨진 필드에 role 값을 저장 -->
             <input type="hidden" th:field="*{role}" id="selectedRole" required>
             <div th:if="${#fields.hasErrors('role')}" class="error" th:errors="*{role}"></div>
             <div class="btn-group">
@@ -90,7 +92,7 @@
           <h6>
             긱톡커에 가입함으로써 귀하는 긱톡커의
             <a href="#" target="_blank">서비스 약관</a>
-            에 동의 하고 당사로부터 이메일을 받는 데 동의하게 됩니다. 당사가 귀하의 개인 데이터를 어떻게 사용하는지 알아보려면 개인
+            에 동의하고 당사로부터 이메일을 받는 데 동의하게 됩니다. 당사가 귀하의 개인 데이터를 어떻게 사용하는지 알아보려면 개인
             <a href="#" target="_blank">정보 보호정책</a>
             을 읽어보시기 바랍니다.
           </h6>
@@ -110,7 +112,7 @@
     });
   });
 
-  function selectRole(role) {
+  function selectRole(event, role) {
     // 선택된 역할을 숨겨진 필드에 설정
     document.getElementById('selectedRole').value = role;
 
@@ -122,6 +124,18 @@
     event.currentTarget.classList.add('selected');
   }
 
+  // 모달 닫기 함수
+  function closeModal() {
+    document.getElementById('successModal').style.display = 'none';
+  }
 
+  // 폼 제출 전에 ROLE 필드 검증
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const roleField = document.getElementById('selectedRole');
+    if (!roleField.value) {
+      e.preventDefault(); // 폼 제출 중단
+      alert('틱톡커에 오신 이유를 선택해주세요!');
+    }
+  });
 </script>
 </html>

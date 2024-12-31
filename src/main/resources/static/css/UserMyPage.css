@@ -208,7 +208,6 @@ a{
 
 .dropdown-group .dropdown-list-wrap .dropdown-button {
     background: var(--gt-write);
-    border: 1px solid var(--gt-gray-05);
     border-radius: 6px;
     color: var(--gt-black-03);
     font-size: var(--gt-text-sm);

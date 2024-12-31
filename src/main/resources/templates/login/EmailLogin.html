@@ -14,7 +14,7 @@
 <div class="login-wrap">
   <div class="container-a">
     <div class="login-area">
-      <a href="" class="login-logo">
+      <a href="/" class="login-logo">
         <img src="/img/log.png" alt="Logo">
       </a>
       <div class="login-email">
@@ -25,7 +25,7 @@
         <div class="email-top">
           <h3>이메일 로그인</h3>
           <!-- <form> 태그를 input-wrap의 외부로 이동 -->
-          <form role="form" method="post" th:action="@{/join/EmailLogin.html}" th:object="${loginFormDto}">
+          <form role="form" method="post" th:action="@{/login/EmailLogin.html}" th:object="${loginFormDto}">
             <div class="input-group">
               <label for="email">이메일</label>
               <input type="text" id="email" th:field="*{email}" placeholder="이메일을 입력하세요" required>
@@ -39,7 +39,7 @@
             <div th:if="${bindingResult != null and bindingResult.globalErrors}">
               <p th:each="error : ${bindingResult.globalErrors}" th:text="${error.defaultMessage}"></p>
             </div>
-            <button type="submit">로그인</button>
+            <button class="btn btn-black" type="submit">로그인</button>
           </form>
         </div>
         <div class="login-bottom">

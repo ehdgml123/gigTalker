@@ -67,12 +67,12 @@
       </span>
       </h1>
       <div class="my-info-edit">
-        <form method="post" action="">
+        <form method="post" th:action="@{/EditInformation}" th:object="${user}">
         <div class="input-group mn">
           <label for="nickname">서명</label>
           <div class="input-area flex-wrap">
             <div class="input-area">
-              <input type="text" id="nickname" placeholder="이름을 입력하세요">
+              <input type="text" id="nickname" th:field="*{name}" placeholder="이름을 입력하세요">
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
           <label for="userPhone">휴대폰 번호</label>
           <div class="input-area flex-wrap">
             <div class="input-area">
-              <input type="text" id="userPhone" placeholder="휴대폰 번호를 입력하세요">
+              <input type="text" id="userPhone" th:field="*{phone}" placeholder="휴대폰 번호를 입력하세요">
             </div>
           </div>
         </div>

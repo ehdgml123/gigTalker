@@ -177,6 +177,29 @@ button {
     width: 100%;
 }
 
+.header-user .dropdown-button {
+    border: 0;
+    border-radius: 0;
+    height: auto;
+    padding: 0 16px 0 0;
+}
+
+.dropdown-button:hover{
+    background : none;
+}
+
+
+.dropdown-button::after{
+    background: url("../img/dkdkdkdk.png");
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    right: 0;
+    width: 20px;
+}
+
+
 .dropdown-button {
     background: var(--gt-write);
     border: 1px solid var(--gt-gray-05);
@@ -189,6 +212,11 @@ button {
     padding: 0 40px 0 16px;
     position: relative;
     width: 100%;
+}
+
+.dropdown-button.active:after {
+    transform: rotate(-180deg);
+    transition: all .5s;
 }
 
 .user-photo {
@@ -206,23 +234,34 @@ button {
     width: 24px;
 }
 
+/* 드롭다운 메뉴의 기본 스타일 */
+.dropdown-group {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-group .header-user .dropdown-list {
-    box-shadow: 0 4px 4px #00000040;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     background: #fff;
     padding: 8px 12px;
     top: 40px;
     right: 0;
-    width: 132px;
+    width: 160px; /* 메뉴의 너비를 조금 넓게 조정 */
     position: absolute;
     z-index: 11;
+    border-radius: 4px; /* 모서리를 둥글게 */
+    display: none; /* 기본적으로 숨김 */
 }
 
-.dropdown-list li {
+.dropdown-group .header-user .dropdown-list.show {
+    display: block; /* 'show' 클래스가 추가되면 표시 */
+}
+
+.dropdown-group .header-user .dropdown-list li {
     height: auto;
     margin: 0 0 10px;
     padding: 0;
 }
-
 
 .dropdown-group .dropdown-list-wrap .dropdown-list li {
     align-items: center;
@@ -236,16 +275,20 @@ button {
     position: relative;
 }
 
-.i-logout{
-    background: url("../img/logout.png");
+
+.i-logout {
+    background: url("../img/logout.png") no-repeat center center;
+    background-size: contain;
     height: 27px;
     width: 27px;
+    margin-right: 8px;
 }
-
 
 .header-top-right button {
     font-size: 17px;
     cursor: pointer;
+    border: none;
+    padding: 0;
 }
 
 .btn-secondary {
@@ -255,45 +298,80 @@ button {
     height: 50px;
     border-radius: 10px;
     border: none;
+    cursor: pointer; /* 버튼에 커서 추가 */
+    transition: background 0.3s ease; /* 부드러운 호버 효과 */
 }
 
-.header-catagory {
+
+.header-category {
     border-top: 1px solid var(--gt-gray-04);
     border-bottom: 1px solid var(--gt-gray-05);
     height: 60px;
     position: relative;
     z-index: 1;
+    display: flex;
+    align-items: center; /* 수직 정렬 */
 }
 
-.header-catagory ul {
+.header-category ul {
     align-items: center;
     display: flex;
     gap: 16px;
     height: 52px;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* 기본 리스트 스타일 제거 */
 }
 
-.all-catagory {
-    align-items: center;
-    color: var(--gt-black-03);
-    cursor: pointer;
-    display: flex;
-    font-size: 18px;
-    font-weight: 700;
-    gap: 8px;
-    margin: 0 16px 0 0;
-}
-
-.i-catagory {
-    background: url(../img/menu.png);
-    width: 24px;
-    height: 27px;
+.header-category ul li {
     position: relative;
 }
 
-.header-catagory ul li a {
+.header-category ul li a {
     color: var(--gt-black-03);
     display: block;
     font-size: 18px;
-    padding: 8px 0;
+    padding: 8px 12px; /* 링크에 패딩 추가 */
     position: relative;
+    text-decoration: none; /* 기본 링크 밑줄 제거 */
+    transition: color 0.3s ease, background 0.3s ease; /* 부드러운 호버 효과 */
+}
+
+.header-category ul li a:hover {
+    color: var(--gt-primary); /* 호버 시 텍스트 색상 변경 */
+    background-color: #f9f9f9; /* 호버 시 배경색 변경 */
+}
+
+.i-category {
+    background: url("../img/menu.png") no-repeat center center;
+    background-size: contain; /* 이미지 크기를 조정하여 완전히 보이도록 */
+    width: 24px;
+    height: 27px;
+    margin-right: 8px; /* 아이콘과 텍스트 사이 간격 추가 */
+}
+
+
+.user-phone {
+    align-items: center;
+    border-radius: 100px;
+    background: var(--gt-warning);
+    background-size: cover !important;
+    color: #fff;
+    font-size: var(--gt-text-mn);
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    position: relative;
+    width: 35px;
+}
+
+.user-phone > p {
+    font-size: 17px;
+}
+
+.first-letter {
+    overflow: hidden;
+    display: inline-block;
+    width: 1.5ch; /* 두 글자를 표시하기 위해 2ch로 변경 */
+    white-space: nowrap;
 }

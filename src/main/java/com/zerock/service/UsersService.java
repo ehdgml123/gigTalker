@@ -4,6 +4,9 @@ import com.zerock.Entity.Users;
 import com.zerock.Repository.UsersRepository;
 import com.zerock.dto.UserFormDto;
 import com.zerock.exception.EmailAlreadyExistsException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,4 +77,20 @@ public class UsersService {
 
         return user;
     }
+
+    @Transactional
+    public void updateUser(Users user) {
+
+        Users existingUser = usersRepository.findById(user.getId())
+                .orElseThrow(()->new RuntimeException("사용자를 찾을수 없습니다."));
+
+
+        existingUser.setName(user.getName());
+        existingUser.setPhone(user.getPhone());
+
+        usersRepository.save(existingUser);
+
+    }
+
+
 }
