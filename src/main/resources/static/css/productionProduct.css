@@ -346,6 +346,7 @@ a{
 .col-12 {
     flex: 0 0 auto;
     width: 100%;
+    margin-top: 155px;
 }
 
 .btn-group button {
@@ -371,4 +372,73 @@ a{
 .btn {
     border: 0;
     border-radius: 6px;
+}
+
+.product-input-area ul {
+    display: block;
+    list-style-type: disc;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.product-input-area ul li {
+    color: var(--gt-gray-03);
+    font-size: 17px;
+    list-style-type: disc;
+}
+
+.product-img-group {
+    background-size: cover;
+    background-position: center center;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    height: 166px;
+    position: relative;
+    width: 262px;
+    left: 387px;
+}
+
+.product-img-group input {
+    display: none;
+}
+
+.product-img-group .btn-img-upload {
+    background: none;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    height: 166px;
+    padding: 0;
+    width: 262px;
+}
+
+.i-product-img-sample{
+    background: url("../img/file.png");
+    display: block;
+    width: 129px;
+    height: 114px;
+    margin-left: 57px;
+
+}
+
+.product-input-area p {
+    color: var(--gt-gray-03);
+    font-size: var(--gt-text-sm);
+    margin: 4px 0 0;
+}
+
+
+#image-preview-container{
+    background-size: cover;
+    background-position: center center;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    height: 166px;
+    position: relative;
+    width: 262px;
+}
+
+#image-preview-container > img{
+    width: 100%;
+    height: 100%;
 }

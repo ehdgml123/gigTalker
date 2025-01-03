@@ -59,7 +59,13 @@
                                         <li>
                                             <a th:href="@{/UserMyPage}" class="link-area">마이페이지</a>
                                         </li>
+                                        <li th:if="${isLoggedIn and #lists.contains(userRoles, 'EXPERT_REGISTRATION')}">
+                                            <a th:href="@{/}" class="link-area">구매 관리</a>
+                                        </li>
                                         <hr>
+                                        <li th:if="${isLoggedIn and #lists.contains(userRoles, 'EXPERT_REGISTRATION')}">
+                                            <a th:href="@{/expert/ExpertCenter}" class="link-area">전문가 센터</a>
+                                        </li>
                                         <li>
                                             <i class="ico i-logout"></i>
                                             <a th:href="@{/logout}" class="link-area">로그아웃</a>

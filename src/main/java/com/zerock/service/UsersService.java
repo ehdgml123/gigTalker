@@ -49,7 +49,7 @@ public class UsersService {
     public Users registerUser(UserFormDto userFormDto) {
 
         // 이메일 중복 확인
-        if (usersRepository.findByEmail(userFormDto.getEmail()) != null) {
+        if (usersRepository.findByEmail(userFormDto.getEmail()).isPresent()) {
             throw new EmailAlreadyExistsException("Email already exists");
         }
 
@@ -65,10 +65,8 @@ public class UsersService {
     public Users authenticateUser(String email, String password) throws Exception {
 
         // 사용자 검색
-        Users user = usersRepository.findByEmail(email);
-        if (user == null) {
-            throw new Exception("등록되지 않은 이메일입니다.");
-        }
+        Users user = usersRepository.findByEmail(email)
+                .orElseThrow(() -> new Exception("등록되지 않은 이메일입니다."));
 
         // 암호화된 비밀번호와 비교
         if (!user.getPassword().equals(hashPassword(password))) {
@@ -76,20 +74,6 @@ public class UsersService {
         }
 
         return user;
-    }
-
-    @Transactional
-    public void updateUser(Users user) {
-
-        Users existingUser = usersRepository.findById(user.getId())
-                .orElseThrow(()->new RuntimeException("사용자를 찾을수 없습니다."));
-
-
-        existingUser.setName(user.getName());
-        existingUser.setPhone(user.getPhone());
-
-        usersRepository.save(existingUser);
-
     }
 
 
