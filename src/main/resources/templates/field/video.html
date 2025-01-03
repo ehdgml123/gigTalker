@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>틱톡커-영상/비디오</title>
     <link th:href="@{/css/video.css}" rel="stylesheet">
-
 </head>
 <body>
 <div class="cont-area" layout:fragment="content">
@@ -30,6 +29,7 @@
         </div>
         <div class="cont-body product-item-wrap">
             <div class="product-filter">
+                <!-- 필터링 관련 코드 유지 -->
                 <div class="dropdown-group catagory md">
                     <div class="dropdown-list-wrap">
                         <button class="dropdown-button" id="dropdown-button" type="button" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +71,7 @@
             </div>
             <div class="product-top">
                 <div class="left">
-                 개
+                    개
                 </div>
                 <div class="right">
                     <div class="ad-info">
@@ -89,30 +89,33 @@
                     </div>
                 </div>
             </div>
+            <!-- 상품 목록 반복문 시작 -->
             <div class="row">
-                <div class="col-3">
+                <div th:each="product : ${productList}" class="col-3">
                     <div class="product-wrap">
                         <button class="btn-heart"></button>
-                          <div class="swiper-wrap product-img" style="cursor: pointer;">
-                              <div class="swiper product-img-swiper">
-                                  <img src="/img/product.jpg">
-                              </div>
-                          </div>
-                          <div class="product-info">
-                              <div class="info-top">
-                                  <a href="#" class="user on">
-                                      WOW Design
-                                  </a>
-                                  <span class="user-level">NEW</span>
-                              </div>
-                               <a href="/Detailvideo" target="_blank" rel="opener">
-                                   <h5 class="product-name">[셀프 증명사진]핸드폰으로 찍은 사진을 편의점 인화 가능한 증명사진으로 만들어드립니다!</h5>
-                               </a>
-                              <h6 class="product-price">5,000 원 ~</h6>
-                          </div>
+                        <div class="swiper-wrap product-img" style="cursor: pointer;">
+                            <div class="swiper product-img-swiper">
+                                <!-- 상품의 대표 이미지 표시 -->
+                                <img th:src="${product.productionServiceImgs[0].imgUrl}" alt="Product Image">
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="info-top">
+                                <a th:href="@{'/user/' + ${product.user.id}}" class="user on">
+                                    <span th:text="${product.user.name}">User Name</span>
+                                </a>
+                                <span class="user-level" th:text="${product.user.level}">LEVEL</span>
+                            </div>
+                            <a th:href="@{'/Detailvideo/' + ${product.id}}" target="_blank" rel="opener">
+                                <h5 class="product-name" th:text="${product.title}">Product Name</h5>
+                            </a>
+                            <h6 class="product-price" th:text="${#numbers.formatInteger(product.basePrice, '###,###')} + ' 원 ~'">Price</h6>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- 상품 목록 반복문 종료 -->
         </div>
     </div>
 </div>
@@ -120,45 +123,45 @@
 <!-- 스크립트 태그를 </body> 바로 전에 위치시킴 -->
 <th:block layout:fragment="script">
     <script th:inline="javascript">
-    console.log("인라인 JavaScript 로드됨");
+        console.log("인라인 JavaScript 로드됨");
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const dropdownButton = document.getElementById("dropdown-button");
-        const dropdownList = document.getElementById("drop01");
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownButton = document.getElementById("dropdown-button");
+            const dropdownList = document.getElementById("drop01");
 
-        if (!dropdownButton || !dropdownList) {
-            console.error("드롭다운 버튼이나 리스트 요소를 찾을 수 없습니다.");
-            return;
-        }
-
-        dropdownButton.addEventListener("click", function (event) {
-            event.preventDefault(); // 기본 동작 방지
-            console.log("Button clicked!");
-
-            // 'active' 클래스 토글
-            dropdownList.classList.toggle("active");
-            dropdownButton.classList.toggle("active"); // 화살표 회전을 위해 버튼에도 클래스 추가
-
-            // 'aria-expanded' 속성 업데이트
-            const isActive = dropdownList.classList.contains("active");
-            dropdownButton.setAttribute("aria-expanded", isActive);
-
-            // 디버깅용 로그 출력
-            console.log("Dropdown active:", isActive);
-        });
-
-        // 외부 클릭 시 드롭다운 닫기
-        document.addEventListener("click", function (event) {
-            if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
-                if (dropdownList.classList.contains("active")) {
-                    dropdownList.classList.remove("active");
-                    dropdownButton.classList.remove("active");
-                    dropdownButton.setAttribute("aria-expanded", false);
-                    console.log("Dropdown closed by clicking outside.");
-                }
+            if (!dropdownButton || !dropdownList) {
+                console.error("드롭다운 버튼이나 리스트 요소를 찾을 수 없습니다.");
+                return;
             }
+
+            dropdownButton.addEventListener("click", function (event) {
+                event.preventDefault(); // 기본 동작 방지
+                console.log("Button clicked!");
+
+                // 'active' 클래스 토글
+                dropdownList.classList.toggle("active");
+                dropdownButton.classList.toggle("active"); // 화살표 회전을 위해 버튼에도 클래스 추가
+
+                // 'aria-expanded' 속성 업데이트
+                const isActive = dropdownList.classList.contains("active");
+                dropdownButton.setAttribute("aria-expanded", isActive);
+
+                // 디버깅용 로그 출력
+                console.log("Dropdown active:", isActive);
+            });
+
+            // 외부 클릭 시 드롭다운 닫기
+            document.addEventListener("click", function (event) {
+                if (!dropdownButton.contains(event.target) && !dropdownList.contains(event.target)) {
+                    if (dropdownList.classList.contains("active")) {
+                        dropdownList.classList.remove("active");
+                        dropdownButton.classList.remove("active");
+                        dropdownButton.setAttribute("aria-expanded", false);
+                        console.log("Dropdown closed by clicking outside.");
+                    }
+                }
+            });
         });
-    });
     </script>
 </th:block>
 </body>

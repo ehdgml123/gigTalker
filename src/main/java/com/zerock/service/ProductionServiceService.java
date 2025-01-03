@@ -61,5 +61,12 @@ public class ProductionServiceService {
             productImgRepository.save(productionServiceImg);
         }
     }
+
+    public List<ProductionService> getProductsByCategory(String category) {
+
+        return productionServiceRepository.findByCategory(category);
+    }
+
+
     }
 
